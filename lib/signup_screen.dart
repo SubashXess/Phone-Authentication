@@ -107,6 +107,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   }
 
   void codeSent(String verificationId, int? forceResendingToken) async {
+    // ignore: avoid_print
     Navigator.push(
       context,
       MaterialPageRoute(
