@@ -8,30 +8,35 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
       body: SafeArea(
-          child: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            const Text(
-              "You are Logged in successfully",
-              style: TextStyle(
-                  color: Colors.blueAccent,
-                  fontSize: 20.0,
-                  fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 20.0),
-            Text("Phone Number : $phone"),
-            MaterialButton(
-              onPressed: () => logOut(context),
-              color: Colors.redAccent,
-              textColor: Colors.white,
-              child: const Text("Logout"),
-            ),
-          ],
+          child: SizedBox(
+        width: double.infinity,
+        height: size.height,
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              const Text(
+                "You are Logged in successfully",
+                style: TextStyle(
+                    color: Colors.blueAccent,
+                    fontSize: 20.0,
+                    fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(height: 20.0),
+              Text("Phone Number : $phone"),
+              MaterialButton(
+                onPressed: () => logOut(context),
+                color: Colors.redAccent,
+                textColor: Colors.white,
+                child: const Text("Logout"),
+              ),
+            ],
+          ),
         ),
       )),
     );
