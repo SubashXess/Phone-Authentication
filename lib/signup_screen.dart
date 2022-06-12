@@ -110,7 +110,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   void codeSent(String verificationId, int? forceResendingToken) async {
 // http
     final signcode = await SmsAutoFill().getAppSignature;
-// // ignore: avoid_print
+    // ignore: avoid_print
     print("Sign Code : $signcode");
 
     // ignore: use_build_context_synchronously

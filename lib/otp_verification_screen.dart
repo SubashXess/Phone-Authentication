@@ -27,7 +27,6 @@ class _VerificationScreenState extends State<VerificationScreen> {
   @override
   void initState() {
     _listenOtp();
-
     super.initState();
   }
 
