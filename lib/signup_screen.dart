@@ -4,6 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:otp_verification_v1/otp_verification_screen.dart';
+import 'package:sms_autofill/sms_autofill.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({Key? key}) : super(key: key);
@@ -90,7 +91,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
     if (_formKey.currentState!.validate()) {
       await _auth.verifyPhoneNumber(
           phoneNumber: phone,
-          timeout: const Duration(seconds: 30),
+          timeout: const Duration(seconds: 60),
           verificationCompleted: verificationCompleted,
           verificationFailed: verificationFailed,
           codeSent: codeSent,
@@ -107,7 +108,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
   }
 
   void codeSent(String verificationId, int? forceResendingToken) async {
-    // ignore: avoid_print
+// http
+    final signcode = await SmsAutoFill().getAppSignature;
+// // ignore: avoid_print
+    print("Sign Code : $signcode");
+
+    // ignore: use_build_context_synchronously
     Navigator.push(
       context,
       MaterialPageRoute(
